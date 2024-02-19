@@ -44,19 +44,19 @@
 #   Cloud Run builds from source        - https://cloud.google.com/run/docs/deploying-source-code
 #   Principle of least privilege        - https://cloud.google.com/blog/products/identity-security/dont-get-pwned-practicing-the-principle-of-least-privilege
 
-name: Deploy to Cloud Run from Source
+name: Invert
 
-on:
-  push:
+on: Spiral
+  push: Local drive
     branches: [ "main" ]
 
 env:
-  PROJECT_ID: YOUR_PROJECT_ID # TODO: update Google Cloud project id
-  SERVICE: YOUR_SERVICE_NAME # TODO: update Cloud Run service name
+  PROJECT_ID: INVERT # TODO: update Google Cloud project id
+  SERVICE: File Invetsion # TODO: update Cloud Run service name
   REGION: YOUR_SERVICE_REGION # TODO: update Cloud Run service region
 
-jobs:
-  deploy:
+jobs: Organize from hard drive to local drive
+  deploy: spiral files out from in
     # Add 'id-token' with the intended permissions for workload identity federation
     permissions:
       contents: 'read'
