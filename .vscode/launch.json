@@ -2,6 +2,33 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "(spi) Spiral",
+            "type": "Invert ",
+            "request": "files",
+            "program":  ${"additionalSOLibSearchPath": ""}{
+                "name": "Launch Program",
+                "program": "${workspaceFolder}/app.js",
+                "request": "Convert",
+                "skipFiles": [
+                    "<node_internals>/**"
+                ],
+                "type": "node"
+            },a.out",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
             "type": "java",
             "name": "Attach to Remote Program",
             "request": "attach",
