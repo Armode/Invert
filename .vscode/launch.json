@@ -1,6 +1,29 @@
 {
     "version": "0.2.0",
     "configurations": [
+        
+
+        {
+            "args": [
+                "--extensionDevelopmentPath=${workspaceFolder}"
+            ],
+            "name": "Launch Extension",
+            "outFiles": [
+                "${workspaceFolder}/out/**/*.js"
+            ],
+            "preLaunchTask": "npm",
+            "request": "launch",
+            "type": "extensionHost"
+        },
+        {
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/app.js",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
         {
             "command": "npm start",
             "name": "Run npm start",
@@ -140,7 +163,7 @@
                 "mainClass": "",
                 "args": "${command:SpecifyProgramArgs}"
             },
-             :{{
+             {
                 "address": "TCP/IP address of process to be debugged",
                 "localRoot": "${workspaceFolder}",
                 "name": "Attach to Remote",
@@ -151,47 +174,22 @@
                     "<node_internals>/**"
                 ],
                 "type": "node"
-             }},[ onceBreakpointResolved]
-                {
-                    "description": {
-                        "name": "Launch Program",
-                        "program": "${workspaceFolder}/app.js",
-                        "request": "launch",
-                        "skipFiles": [
-                            "<node_internals>/**"
-                        ],
-                        "type": "node"
-                    },"displayOrder":
-                    "fileListLayout", 
-                    "-enable-pretty-printing":
-                    "innermostParenthesis", "outermostParenthesis": "customData"
-                },
-                {
-                    "description": "Set Disassembly Flavor to Intel",
-                    "text": "-gdb-set disassembly-flavor intel",
-                    "ignoreFailures": true
-                }
-            ]
-        ,{
-            "type": "java",
-            "name": "Attach to Remote Program",
-            "request": "attach",
-            "hostName": "<The host name or ip address of remote debuggee>",
-            "port": "<debug port of remote debuggee>"
-         },
-        {
-            "type": "java",
-            "name": "Attach to Remote Program",
-            "request": "attach",
-            "hostName": "<The host name or ip address of remote debuggee>",
-            "port": "<debug port of remote debuggee>"
-        },
-        {
-            "name": "Python Debugger: Python File",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "${file}"
-        },
+            , } ,{
+                "name": "ROS: Launch",
+                "type": "ros",
+                "request": "launch",
+                "target": "absolute path to launch file"
+            },
+    
+            {
+                "name": "Launch Chrome",
+                "request": "launch",
+                "type": "chrome",
+                "url": "http://localhost:8080",
+                "webRoot": "${workspaceFolder}"
+            }, 
+            
+         
         {
             "type": "node-terminal",
             "name": "JavaScript Debug Terminal",
