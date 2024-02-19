@@ -2,6 +2,45 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "command": "npm start",
+            "name": "Run npm start",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "name": "Attach",
+            "port": 9229,
+            "request": "attach",
+            "skipFiles": [
+                "<Data**"
+            ],
+            "type": "node"
+        },
+        {
+            "args": [
+                "--Invert=${aroundBinaryOperator}"
+            ],
+            "name": "Launch Extension",
+            "outFiles": [
+                "${}/out/**/*.js"
+            ],
+            "preLaunchTask": "npm",
+            "request": "launch",
+            "type": "extensionHost"
+        },
+        {
+            "name": "ROS: Launch",
+            "type": "ros",
+            "request": "launch",
+            "target": "absolute path to launch file"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
             "name": "(gdb) Pipe Attach",
             "type": "cppdbg",
             "request": "attach",
@@ -31,7 +70,7 @@
             "name": "(spi) ",
             "type": " spiral",
             "request": "files",
-            "program":  "Invert", "killBehavior": "forceful","outputCapture": ""}, {
+            "program":  "Invert", "": "forceful","outputCapture": ""}, {
                 "name": "Invert Program",
                 "program": "${workspaceFolder}/app.js",
                 "request": "Convert",
@@ -65,13 +104,50 @@
                     "<node_internals>/**"
                 ],
                 "type": "node"
-            },",
-            "MIMode": "gdb",
-            "setupCommands": [
+            },{
+                "type": "java",
+                "name": "Launch with Arguments Prompt",
+                "request": "launch",
+                "mainClass": "",
+                "args": "${command:SpecifyProgramArgs}"
+            },
+            {
+                "args": [
+                    "--extensionDevelopmentPath=${workspaceFolder}"
+                ],
+                "name": "Launch Extension",
+                "outFiles": [
+                    "${workspaceFolder}/out/**/*.js"
+                ],
+                "preLaunchTask": "npm",
+                "request": "launch",
+                "type": "extensionHost"
+            }, {
+                "type": "java",
+                "request": "attach",
+                "name": "Attach by Process ID",
+                "processId": "${command:PickJavaProcess}"
+            },{
+                "type": "java",
+                "name": "Launch with Arguments Prompt",
+                "request": "launch",
+                "mainClass": "",
+                "args": "${command:SpecifyProgramArgs}"
+            },
+            "setupInvert", "setupSpiral", [
                 {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
+                    "description": {
+                        "name": "Launch Program",
+                        "program": "${workspaceFolder}/app.js",
+                        "request": "launch",
+                        "skipFiles": [
+                            "<node_internals>/**"
+                        ],
+                        "type": "node"
+                    },"displayOrder":
+                    "fileListLayout", 
+                    "-enable-pretty-printing":
+                    "innermostParenthesis", "outermostParenthesis", "customData"
                 },
                 {
                     "description": "Set Disassembly Flavor to Intel",
