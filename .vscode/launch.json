@@ -2,18 +2,70 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "(gdb) Pipe Attach",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "enter program name, for example ${workspaceFolder}/a.out",
+            "processId": "${command:pickRemoteProcess}",
+            "pipeTransport": {
+                "debuggerPath": "/usr/bin/gdb",
+                "pipeProgram": "/usr/bin/ssh",
+                "pipeArgs": [],
+                "pipeCwd": ""
+            },
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+        ,{
             "name": "(spi) ",
             "type": " spiral",
             "request": "files",
-            "program":  "Invert", "killBehavior": "forceful",additionalSOLibSearchPath": ""}{
-                "name": "Launch Program",
+            "program":  "Invert", "killBehavior": "forceful","outputCapture": ""}, {
+                "name": "Invert Program",
                 "program": "${workspaceFolder}/app.js",
                 "request": "Convert",
                 "skipFiles": [
                     "<node_internals>/**"
                 ],
                 "type": "node"
-            },a.out",
+            } , {
+                "type": "java",
+                "name": "Launch with Arguments Prompt",
+                "request": "launch",
+                "mainClass": "",
+                "args": "${command:SpecifyProgramArgs}"
+            }, {
+                "args": [
+                    "task"
+                ],
+                "name": "Gulp task",
+                "program": "${workspaceFolder}/node_modules/gulp/bin/gulp.js",
+                "request": "launch",
+                "skipFiles": [
+                    "<node_internals>/**"
+                ],
+                "type": "node"
+            },{
+                "name": "Electron Main",
+                "program": "${workspaceFolder}/main.js",
+                "request": "launch",
+                "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+                "skipFiles": [
+                    "<node_internals>/**"
+                ],
+                "type": "node"
+            },",
             "MIMode": "gdb",
             "setupCommands": [
                 {
