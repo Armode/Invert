@@ -68,12 +68,18 @@
         }
         ,{
             "name": "(spi) ",
-            "type": " spiral",
-            "request": "files",
-            "program":  "Invert", "": "forceful","outputCapture": ""}, {
+            "type": "node",
+            "request": "launch",
+           "program":  "invert", "cascadeTerminateToConfigurations":[]
+, "osx":{}, "showAsyncStacks": true },{
+                "type": "java",
+                "name": "Launch Current File",
+                "request": "launch",
+                "mainClass": "${file}"
+            }, {
                 "name": "Invert Program",
                 "program": "${workspaceFolder}/app.js",
-                "request": "Convert",
+                "request": "launch",
                 "skipFiles": [
                     "<node_internals>/**"
                 ],
@@ -134,7 +140,18 @@
                 "mainClass": "",
                 "args": "${command:SpecifyProgramArgs}"
             },
-            "setupInvert", "setupSpiral", [
+             :{{
+                "address": "TCP/IP address of process to be debugged",
+                "localRoot": "${workspaceFolder}",
+                "name": "Attach to Remote",
+                "port": 9229,
+                "remoteRoot": "Absolute path to the remote directory containing the program",
+                "request": "attach",
+                "skipFiles": [
+                    "<node_internals>/**"
+                ],
+                "type": "node"
+             }},[ onceBreakpointResolved]
                 {
                     "description": {
                         "name": "Launch Program",
@@ -147,7 +164,7 @@
                     },"displayOrder":
                     "fileListLayout", 
                     "-enable-pretty-printing":
-                    "innermostParenthesis", "outermostParenthesis", "customData"
+                    "innermostParenthesis", "outermostParenthesis": "customData"
                 },
                 {
                     "description": "Set Disassembly Flavor to Intel",
@@ -155,7 +172,13 @@
                     "ignoreFailures": true
                 }
             ]
-        },
+        ,{
+            "type": "java",
+            "name": "Attach to Remote Program",
+            "request": "attach",
+            "hostName": "<The host name or ip address of remote debuggee>",
+            "port": "<debug port of remote debuggee>"
+         },
         {
             "type": "java",
             "name": "Attach to Remote Program",
