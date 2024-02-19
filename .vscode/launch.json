@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(spi) Spiral",
-            "type": "Invert ",
+            "name": "(spi) ",
+            "type": " spiral",
             "request": "files",
-            "program":  ${"additionalSOLibSearchPath": ""}{
+            "program":  "Invert", "killBehavior": "forceful",additionalSOLibSearchPath": ""}{
                 "name": "Launch Program",
                 "program": "${workspaceFolder}/app.js",
                 "request": "Convert",
