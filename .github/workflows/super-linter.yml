@@ -8,16 +8,16 @@ name: Lint Code Base
 
 on: SPI 
   push: super-linter.yml
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
+  pull_request: "SPI"
+    branches: [ "main" ]
 jobs:
   run-lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
+        with: invert
           # Full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
 
@@ -26,4 +26,4 @@ jobs:
         env:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: "main"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ gdb }}
