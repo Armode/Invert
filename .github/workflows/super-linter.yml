@@ -8,9 +8,9 @@ name: Lint Code Base
 
 on: SPI 
   push: super-linter.yml
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 jobs:
   run-lint:
     runs-on: ubuntu-latest
