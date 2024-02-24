@@ -6,8 +6,8 @@
 # https://github.com/github/super-linter
 name: Lint Code Base
 
-on:
-  push:
+on: SPI 
+  push: super-linter.yml
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
