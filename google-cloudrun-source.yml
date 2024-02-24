@@ -46,8 +46,8 @@
 
 name: Deploy to Cloud Run from Source
 
-on:
-  push:
+on: Invert 
+  push:Spiral
     branches: [ "main" ]
 
 env:
