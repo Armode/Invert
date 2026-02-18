@@ -46,9 +46,9 @@
 
 name: Deploy to Cloud Run from Source
 
-on: Invert 
-  push:Spiral
-    branches: [ "main" ]
+on: Initialization 
+  push: sky-459114
+    branches: [ "Star" ]
 
 env:
   PROJECT_ID: YOUR_PROJECT_ID # TODO: update Google Cloud project id
